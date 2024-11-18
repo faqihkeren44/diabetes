@@ -88,6 +88,7 @@ Berikut adalah informasi dasar dari data yang akan digunakan:
 - 3 *features* merupakan data kategorikal yang berupa 0 sebagai tidak, dan 1 sebagai iya, dan 2 *features* kategorikal dengan beberapa pilihan
 
 ### Variabel-variabel Diabetes Prediction Dataset
+
 - gender: Merepresentasikan jenis kelamin pasien (Male: Pria, Female: Wanita, Other: Lainnya).
 - age: Rentang usia pasien (Dari 0-80 tahun).
 - hypertension: Kondisi kesehatan yang terjadi ketika tekanan darah sistolik (SBP) ≥ 140 mmHg dan/atau tekanan darah diastolik (DBP) ≥ 90 mmHg, menandakan memaksa jantung memompa darah lebih keras (0: Tidak ada *hypertension*, 1: Terdapat *hypertension*).
@@ -97,6 +98,25 @@ Berikut adalah informasi dasar dari data yang akan digunakan:
 - HbA1c_level: Level Hemoglobin A1c menunjukkan kadar gula darah rata-rata selama 2-3 bulan terakhir.
 - blood_glucose_level: Merepresentasikan jumlah glukosa dalam aliran darah pada waktu tertentu. Inilah indikator dari diabetes.
 - Diabetes: Menunjukan hasil diabetes (0: Tidak terindikasi diabeted, 1: Terindikasi diabetes).
+
+### Exploratory Data Analysis
+
+#### Age
+
+Dapat dilihat pada hiplot di bawah ini, bahwa rentang umur dataset yaitu 0-80 tahun. Semakin bertambah usia, semakin tinggi pula pasien yang terkena diabetes. Artinya, umur cukup mempengaruhi diabetes.
+![vis_1](images/vis_1.png)
+
+#### Data Kategorikal
+![categorical_visualization](images/vis_2.png)
+Dari visualisasi dataset di atas, tidak ada yang terlalu menyebabkan orang terkena diabetes. Memang tingkat orang yang tidak terkena *hypertension* atau penyakit jantung lebih tinggi tidak terkena diabetes, namun jumlah data yang terkena *hypertension* atau penyakit jantung lebih sedikit. Begitu juga dengan jenis kelamin dan riwayat merokok.
+
+#### Data Numerikal
+![numerical_visualization](images/vis_4.png)
+Berikut beberapa informasi yang dapat diambil:
+- Orang dengan level Hemoglobin A1c di atas 6.5 dipastikan terkena diabetes. Namun ada beberapa orang dengan level Hemoglobin A1c di bawah 6.5 yang terkena diabetes.
+- Orang dengan jumlah glukosa di atas 200 dipastikan terkena diabetes.
+- Menurut data yang digunkakan, bmi atau jumlah perkiraan lemak pada tubuh tidak terlalu mempengaruhi diabetes, karena banyak juga pasien dengan bmi di atas 60 yang tidak terkena diabetes. 
+- Kedua *features* ini adalah indikasi seseorang terkena diabetes atau tidak.
 
 **Rubrik/Kriteria Tambahan (Opsional)**:
 - Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data atau exploratory data analysis.
