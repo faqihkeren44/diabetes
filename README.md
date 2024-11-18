@@ -12,8 +12,8 @@ Bila tubuh tidak dapat memproduksi atau menggunakan insulin secara efektif, hal 
 
 Menurut data tahun 2021 yang dilansir dari situs resmi IDF (International Diabetes Federation), 10,5% atau 537 juta orang dewasa di dunia (Umur 20-79 tahun) hidup dengan mengidap diabetes. Angka ini diprediksi akan terus meningkat hingga ke angka 643 juta di tahun 2030, dan 783 juta di tahun 2045.
 Sedangkan jumlah kematian yang disebabkan oleh diabetes pada tahun 2021 terjadi sebanyak 6,7 juta (1 kasus kematian setiap 5 detiknya)
-<sup>[2]</sup>(https://idf.org/about-diabetes/diabetes-facts-figures/)
-<sup>[3]https://diabetesatlas.org/#:~:text=Diabetes%20around%20the%20world%20in%202021%3A,%2D%20and%20middle%2Dincome%20countries.)</sup>
+<sup>[2](https://idf.org/about-diabetes/diabetes-facts-figures/)</sup>
+<sup>[3](https://diabetesatlas.org/#:~:text=Diabetes%20around%20the%20world%20in%202021%3A,%2D%20and%20middle%2Dincome%20countries.)</sup>
 
 Indonesia termasuk negara dengan jumlah diabetes terbanyak. Pada tahun 2021, Indonesia menempati peringkat kelima terbanyak dengan jumlah 19,5 juta penderita.
 <sup>[4](https://idf.org/our-network/regions-and-members/western-pacific/members/indonesia/)</sup>
