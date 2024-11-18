@@ -8,29 +8,36 @@ Proyek ini dibuat dalam bidang kesehatan, yaitu tentang penyakit diabetes yang s
 Diabetes adalah kondisi kronis yang terjadi saat pankreas tidak dapat lagi memproduksi insulin, atau tubuh tidak dapat menggunakan insulin secara efektif.
 Insulin adalah hormon yang dibuat oleh pankreas yang berfungsi sebagai kunci untuk menyalurkan glukosa dari makanan yang kita makan dari aliran darah ke dalam sel-sel tubuh untuk menghasilkan energi. Tubuh memecah semua makanan karbohidrat menjadi glukosa dalam darah, dan insulin membantu glukosa bergerak ke dalam sel-sel.
 Bila tubuh tidak dapat memproduksi atau menggunakan insulin secara efektif, hal ini menyebabkan kadar glukosa darah tinggi, yang disebut hiperglikemia
-<sup>[1](https://idf.org/about-diabetes/what-is-diabetes/)</sup>
+<sup>[1](https://idf.org/about-diabetes/what-is-diabetes/)</sup>.
 
 Menurut data tahun 2021 yang dilansir dari situs resmi IDF (International Diabetes Federation), 10,5% atau 537 juta orang dewasa di dunia (Umur 20-79 tahun) hidup dengan mengidap diabetes. Angka ini diprediksi akan terus meningkat hingga ke angka 643 juta di tahun 2030, dan 783 juta di tahun 2045.
 Sedangkan jumlah kematian yang disebabkan oleh diabetes pada tahun 2021 terjadi sebanyak 6,7 juta (1 kasus kematian setiap 5 detiknya)
 <sup>[2](https://idf.org/about-diabetes/diabetes-facts-figures/)</sup>
-<sup>[3](https://diabetesatlas.org/#:~:text=Diabetes%20around%20the%20world%20in%202021%3A,%2D%20and%20middle%2Dincome%20countries.)</sup>
+<sup>[3](https://diabetesatlas.org/#:~:text=Diabetes%20around%20the%20world%20in%202021%3A,%2D%20and%20middle%2Dincome%20countries.)</sup>.
 
 Indonesia termasuk negara dengan jumlah diabetes terbanyak. Pada tahun 2021, Indonesia menempati peringkat kelima terbanyak dengan jumlah 19,5 juta penderita.
-<sup>[4](https://idf.org/our-network/regions-and-members/western-pacific/members/indonesia/)</sup>
+<sup>[4](https://idf.org/our-network/regions-and-members/western-pacific/members/indonesia/)</sup>.
+
 Persoalan ini menjadi perhatian serius bagi Kementerian Kesehatan. Apalagi diabetes melitus merupakan ibu dari segala penyakit.
+
 “Diabetes itu adalah mother of all diseases. Kalau tidak terkontrol, dia bisa terkena penyakit jantung, stroke, ginjal yang akan lebih berat lagi masalahnya, akan lebih berat lagi biayanya,” ujar Direktur Pencegahan dan Pengendalian Penyakit Tidak Menular Kementerian Kesehatan, Dr. Eva Susanti, S. Kp., M. Kes., kepada Mediakom pada Kamis, 14 Desember 2023
-<sup>[5](https://sehatnegeriku.kemkes.go.id/baca/blog/20240110/5344736/saatnya-mengatur-si-manis#:~:text=Menurut%20IDF%2C%20Indonesia%20menduduki%20peringkat,merupakan%20ibu%20dari%20segala%20penyakit.)</sup>
+<sup>[5](https://sehatnegeriku.kemkes.go.id/baca/blog/20240110/5344736/saatnya-mengatur-si-manis#:~:text=Menurut%20IDF%2C%20Indonesia%20menduduki%20peringkat,merupakan%20ibu%20dari%20segala%20penyakit.)</sup>.
 
 Mengingat banyaknya kasus yang terjadi, proyek "Diabetes Prediction" ini dibuat untuk membantu orang orang mengantisipasi penyakit diabetes.
-Hasil dari proyek ini adalah dashboard dan model prediksi. Dashboard bertujuan untuk menghimbau orang tentang penyakit diabetes, seperti penyebab, gejala, dan cara pencegahan diabetes. Model prediksi yang dibuat dapat memprediksi apakah dia terkena diabetes atau tidak dengan data kesehatan yang dia milki, dan mengetahui rekomendasi hal apa yang perlu dilakukan untuk mengurangi resiko diabetes.
+
+Hasil dari proyek ini adalah dashboard dan model prediksi
+- Dashboard bertujuan untuk menghimbau orang tentang penyakit diabetes, seperti penyebab, gejala, dan cara pencegahan diabetes.
+- Model prediksi yang dibuat dapat memprediksi apakah dia terkena diabetes atau tidak dengan data kesehatan yang dia milki, dan mengetahui rekomendasi hal apa yang perlu dilakukan untuk mengurangi resiko diabetes.
 
 ## 2. Business Understanding
 
 ### Problem Statements
 
-Dari latar belakang yang sudah dijelaskan sebelumnya, dapat disimpulkan bahwa diabetes sudah menjadi ancaman serius bagi kesehatan saat ini. Oleh sebab itu, Proyek Diabetes Prediction ini dibuat. Diantara beberapa masalah yang akan diselesaikan melalui Proyek Diabetes Prediction ini adalah sebagai berikut:
+Dari latar belakang yang sudah dijelaskan sebelumnya, dapat disimpulkan bahwa diabetes sudah menjadi ancaman serius bagi kesehatan saat ini. Oleh sebab itu, Proyek Diabetes Prediction ini dibuat.
+
+Diantara beberapa masalah yang akan diselesaikan melalui Proyek Diabetes Prediction ini adalah sebagai berikut:
 - Dari data kesehatan yang ada, apa faktor yang mempengaruhi orang terkena diabetes, dan korelasinya terhadap data kesehatan lainnya.
-- Model yang dapat memprediksi apakah orang itu terkena diabetes atau tidak sesuai data kesehatannya, sehingga perlu mengetahui juga model dan algoritma apa yang terbaik 
+- Model yang dapat memprediksi apakah orang itu terkena diabetes atau tidak sesuai data kesehatannya, sehingga perlu mengetahui juga model dan algoritma apa yang terbaik.
 - Hal apa saja yang sesuai untuk dia kerjakan agar dapat mengurangi resiko diabetes. Karena setiap orang memilki kondisi kesehatan yang berbeda yang mungkin salah satunya menjadi penyebab diabetes.
 
 ### Goals
@@ -42,10 +49,8 @@ Tujuan utama dari Proyek Diabetes Prediction ini adalah semua orang dapat mengan
 - Untuk dapat menemukan model yang dapat memprediksi secara akurat, Proyek Diabetes Prediction ini akan melatih berbagai macam model, lalu memilihi model dengan akurasi paling tinggi sebagai model yang digunakan.
 - Rekomendasi hal yang akan ditampilkan akan diambil dari beberapa sumber, yaitu:
 - Memvisualisasikan semua fitur yang ada pada data dan mengkorelasikannya dengan fitur lainnya agar terlihat jelas apa saja yang dapat menyebabkan diabetes. Salah satu visualisasi yang akan dipakai yaitu heatmap dengan memanfaatkan library seaborn
-
-- Menambahkan bagian “Solution Statement” yang menguraikan cara untuk meraih goals. Bagian ini dibuat dengan ketentuan sebagai berikut:
-- Mengajukan 2 atau lebih solution statement. Misalnya, menggunakan dua atau lebih algoritma untuk mencapai solusi yang diinginkan atau melakukan improvement pada baseline model dengan hyperparameter tuning.
-- Solusi yang diberikan harus dapat terukur dengan metrik evaluasi.
+- Untuk meningkatkan akurasi model, akan ditambahkan proses improvement pada machine learning yang dipilih dengan hyperparameter tuning.
+- Metrik evaluasi yang digunakan adalah *accuracy*, *recall*, *precission*, dan *f1-score* yang ada dalam classification_report. Selain itu juga akan ada *confusion matrix*.
 
 ## 3. Data Understanding
 
@@ -53,7 +58,36 @@ Data yang digunakan dalam proyek ini merupakan data parameter kesehatan pasien t
 
 Dataset yang dapat diunduh di: [Diabetes Prediction Dataset](https://www.kaggle.com/datasets/iammustafatz/diabetes-prediction-dataset) 
 
-### Variabel-variabel pada Diabetes Prediction Dataset adalah sebagai berikut:
+### Sample Data
+
+|       | gender   |   age |   hypertension |   heart_disease | smoking_history   |   bmi |   HbA1c_level |   blood_glucose_level |   diabetes |
+|------:|:---------|------:|---------------:|----------------:|:------------------|------:|--------------:|----------------------:|-----------:|
+|     0 | Female   | 80    |              0 |               1 | never             | 25.19 |           6.6 |                   140 |          0 |
+|     1 | Female   | 54    |              0 |               0 | No Info           | 27.32 |           6.6 |                    80 |          0 |
+|     2 | Male     | 28    |              0 |               0 | never             | 27.32 |           5.7 |                   158 |          0 |
+|     3 | Female   | 36    |              0 |               0 | current           | 23.45 |           5   |                   155 |          0 |
+|     4 | Male     | 76    |              1 |               1 | current           | 20.14 |           4.8 |                   155 |          0 |
+
+### Informasi Dasar Data
+
+|       |         age |   hypertension |   heart_disease |          bmi |   HbA1c_level |   blood_glucose_level |      diabetes |
+|:------|------------:|---------------:|----------------:|-------------:|--------------:|----------------------:|--------------:|
+| count | 100000      |   100000       |   100000        | 100000       |  100000       |           100000      | 100000        |
+| mean  |     41.8859 |        0.07485 |        0.03942  |     27.3208  |       5.52751 |              138.058  |      0.085    |
+| std   |     22.5168 |        0.26315 |        0.194593 |      6.63678 |       1.07067 |               40.7081 |      0.278883 |
+| min   |      0.08   |        0       |        0        |     10.01    |       3.5     |               80      |      0        |
+| 25%   |     24      |        0       |        0        |     23.63    |       4.8     |              100      |      0        |
+| 50%   |     43      |        0       |        0        |     27.32    |       5.8     |              140      |      0        |
+| 75%   |     60      |        0       |        0        |     29.58    |       6.2     |              159      |      0        |
+| max   |     80      |        1       |        1        |     95.69    |       9       |              300      |      1        |
+
+Berikut adalah informasi dasar dari data yang akan digunakan:
+- Format dataset berupa CSV (Comma-Seperated Values),
+- Dataset memiliki 10.000 sample, dengan 8 *feature*,
+- 2 *features* berupa string, dan lainnya berupa *float* atau *integer*,
+- 3 *features* merupakan data kategorikal yang berupa 0 sebagai tidak, dan 1 sebagai iya, dan 2 *features* kategorikal dengan beberapa pilihan
+
+### Variabel-variabel Diabetes Prediction Dataset
 - gender: Merepresentasikan jenis kelamin pasien (Male: Pria, Female: Wanita, Other: Lainnya).
 - age: Rentang usia pasien (Dari 0-80 tahun).
 - hypertension: Kondisi kesehatan yang terjadi ketika tekanan darah sistolik (SBP) ≥ 140 mmHg dan/atau tekanan darah diastolik (DBP) ≥ 90 mmHg, menandakan memaksa jantung memompa darah lebih keras (0: Tidak ada *hypertension*, 1: Terdapat *hypertension*).
