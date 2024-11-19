@@ -1,0 +1,20 @@
+<html>
+    <body bgcolor=#d4a3ae>
+
+        <center>
+
+        <h1> Diabetes Prediction </h1><br>
+        
+        <form method="POST", action="{{url_for('home')}}">
+            Nama :  <input type="text", name='name', placeholder="enter 1"> <br><br>
+            Umur :  <input type="text", name='age', placeholder="enter 2"> <br><br>
+            Level Glukosa :  <input type="text", name='blood_glucose_level', placeholder="enter 3"> <br><br>
+            Level Hemoglobin A1c :  <input type="text", name='HbA1c_level', placeholder="enter 4"> <br><br>
+            bmi : <input type="text", name='bmi', placeholder="enter 5"> <br><br><br></b>
+            <input type="submit" , value='predict!' >
+        </form>
+        
+    </center>
+
+    </body>
+</html>
