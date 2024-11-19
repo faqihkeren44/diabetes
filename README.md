@@ -118,41 +118,66 @@ Berikut beberapa informasi yang dapat diambil:
 - Menurut data yang digunkakan, bmi atau jumlah perkiraan lemak pada tubuh tidak terlalu mempengaruhi diabetes, karena banyak juga pasien dengan bmi di atas 60 yang tidak terkena diabetes. 
 - Kedua *features* ini adalah indikasi seseorang terkena diabetes atau tidak.
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data atau exploratory data analysis.
+#### Heatmap
+
+![heatmap_corr](images/heatmap_corr.png)
+Di atas adalah heatmap korelasi/hubungan antara *feature* diabetes dengan fitur lainnya. Beberapa hasil yang didapat antara lain:
+- 
 
 ## 4. Data Preparation
+
 Berikut adalah urutan data preparation yang digunakan dalam proyek:
+
 #### Missing Value
+
 Mengetahui apakah ada data yang kosong pada setiap kolom menggunakan kode isnull(), dan menjumlahkan data yang bernilai koson tersebut dengan perintah sum().
 Missnig value sering kali menjadi hambatan dan menurunkan tingkat akurasi, karena data yang hilang merupakan data penting yang juga dipelajari oleh model.
+
 #### Duplikasi Data
+
 Menyeleksi apakah ada data yang memiliki nilai yang sama dengan data lain. Untuk mencari data yang terduplikasi ini, dilakukan dengan menggunakan perintah dupliacted().
 Setelah itu, jumlah data yang sama ini akan ditotalkan dan menampilkan jumlahnya dengan perintah sum().
+
 Duplikasi juga salah satu kesalahan yang dapat menyebabkan kesalahan interpretasi dan mengganggu analisis sehingga dapat berpotensi menyesatkan model pembelajaran.
 Oleh karena iu, jika terdapat data yang terduplikasi, maka semua data itu akan dihapus, dan hanya menyisakan 1 data saja. Adapun perintah untuk menghapusnya secara otomatis yaitu denagn drop_duplicated(inplace=True).
+
 #### Menghapus Nilai Yang Tidak Sesuai
+
 Pada kolom 'gender', terdapat nilai 'Other', yaitu jenis kelamin selain Laki-laki dan perempuan. Karena hanya ada 2 jenis kelamin data dengan 'gender' 'Other' akan dihapus. Dan karena data ini hanya ada 18, maka tidak akan mempengaruhi nilai data.
+
 Kolom smoking_history di sini akan dihapus, karena smoking_history memiliki banyak pilihan yang kurang jelas, dan mungkin akan mempersulit pembelajaran model.
+
 #### Mengubah Tipe Data
+
 Setelah memperhatikan semua data, terdapat tipe data string/object, yaitu 'gender' dan 'smoking_history'. Untuk memudahkan kita dalam menentukan penyebab diabetes, dan juga memudahkan proses pembelajaran mesin, data string ini akan diubah menjadi integer.
+
 Untuk mengubah gender, di sini menggunakan perintah .cat.codes. Setelah dilihat menggunakan main_df.gender.cat.categories, dapat dilihat bahwa '0' mewakili Female/Perempuan, dan '1' mewaliki Male/Laki-laki
+
 #### Menghapus Kolom Yang Tidak Penting
+
 Kolom smoking_history di sini akan dihapus, karena smoking_history memiliki banyak pilihan yang kurang jelas, dan mungkin akan mempersulit pembelajaran model.
+
 Selanjutnya, agar dapat memilih kolom mana yang penting, yang pertama yaitu mencari nilai korelasi setiap feature dengan nilai diabetes menggunakan peerintah corr(). Proses ini dapat menggunakan berbagai macam cara, diantaranya:
 - Membuat heatmat dengan memanfaatkan library seaborn dan matplotlib
 - Membuat dataset baru dengan nama 'top_features' yang berisikan features dengan nilai korelasi di atas 0.19
 - Agar terlihat lebih jelas, nilai korelasi dataset 'top_features' dibuatkan grafik batang dengan judul 'Correlation of Features with Diabetes'
+
 Dari tingkat korelasi yang ada, diketahui bahwa 5 features tertinggi yaitu 'blood_glucose_level', 'HbA1c_level', 'age', 'bmi', 'hypertension', sehingga hanya ini yang akan kita buat sebagai data.
 Tahapan ini dilakukan agar data yang dilatih oleh model adalah data yang benar-benar berguna, sehingga menghasilkan akurasi lebih tinggi.
+
 #### Membagi Train dan Test
+
 Sebelum memasuki tahap modeling, data perlu dibagi menjadi data training dan data test. Data training merupakan data yang digunakan untuk membangun sebuah model dan mendapatkan bobot yang sesuai. Sedangkan data testing digunakan untuk mengetahui tingkat keakuratan hasil dengan nilai sebenarnya.
+
 Sebelum dibagi menjadi train dan test, data yang sudah siap dibagi menjadi label/feature (pada data ini yaitu: 'diabblood_glucose_level', 'HbA1c_level', 'age', dan 'bmi') dan target (hasil yang ingin diprediksi, yaitu 'diabetes')
 Cara mudah membagi data yaitu dengan menggunakan train_test_split. Berikut adalah kode untuk meng*import*nya 
-from sklearn.model_selection import train_test_split. 
+
+``` from sklearn.model_selection import train_test_split ```
+
 target_size atau rasio yang digunakan untuk proyek ini yaitu 0.2 (80% data training, 20% data train). Rasio ini umum digunakan untuk memberikan keseimbangan antara memiliki jumlah data yang cukup untuk melatih model dan menyediakan data yang cukup untuk menguji performa model.
 
 ## 5. Modeling
+
 Tahap ini adalah tahap modeling, yaitu proses mesin mempelajari data yang sudah disiapkan. Pada proyek ini, dicoba menggunakan berbagai macam jenis algoritma machine learning, lalu mengambil model yang memiliki nilai paling tinggi. Algoritma yang dicoba adalah:
 - LogisticRegression
 - K-Nearest Neighbors
@@ -166,11 +191,16 @@ Tahap ini adalah tahap modeling, yaitu proses mesin mempelajari data yang sudah 
 Setelah dicoba dengan beragam algoritma machine learning, hasil *metric accuracy* menunjukan bahwa Gradient Boosting adalah algoritma terbaik. Oleh karena itu, proyek ini akan menggunakan Gradient Boosting.
 
 ### Gradient Boosting
-**Cara Kerja Gradient Boosting**
+
+####Cara Kerja Gradient Boosting
+
 Algoritma Gradient Boosting bekerja dengan menggabungkan beberapa model yang lemah menjadi sebuah model yang lebih kuat. Model-model lemah ini sering disebut dengan weak learners, dan dapat berupa model regresi atau klasifikasi sederhana seperti Decision Tree.
+
 Algoritma ini menggunakan pendekatan iteratif, di mana setiap iterasi, Gradient Boosting akan menambahkan weak learner baru dan mengoreksi prediksi sebelumnya dengan memperhitungkan kesalahan pada prediksi tersebut.
 Proses ini dilakukan secara berulang-ulang hingga model yang dihasilkan memenuhi kriteria tertentu, seperti nilai loss function yang cukup kecil.
-**Kelebihan dan Kekurangan Gradient Boosting**
+
+#### Kelebihan dan Kekurangan Gradient Boosting
+
 Berikut adalah kelebihan algoritma Gradien Boosting:
 - Gradient Boosting sering menghasilkan model yang akurat dan kuat, terutama ketika digunakan pada data yang kompleks dan tidak terstruktur.
 - Algoritma ini dapat digunakan pada berbagai jenis data tanpa memerlukan asumsi yang ketat, seperti asumsi tentang distribusi data atau homoskedastisitas.
@@ -179,18 +209,28 @@ Berikut adalah kekurangan algoritma Gradien Boosting:
 - Gradient Boosting dapat cenderung overfit pada data training jika tidak dilakukan pengaturan parameter yang baik. 
 - Gradient Boosting memerlukan jumlah data yang besar untuk memperoleh model yang akurat dan stabil. Jika jumlah data terlalu sedikit, algoritma ini dapat menjadi tidak stabil dan menghasilkan model yang tidak akurat.
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan kelebihan dan kekurangan dari setiap algoritma yang digunakan.
-- Jika menggunakan satu algoritma pada solution statement, lakukan proses improvement terhadap model dengan hyperparameter tuning. **Jelaskan proses improvement yang dilakukan**.
-- Jika menggunakan dua atau lebih algoritma pada solution statement, maka pilih model terbaik sebagai solusi. **Jelaskan mengapa memilih model tersebut sebagai model terbaik**.
+### Improvement dengan RandomizedSearchCV 
+
+RandomizedSearchCV adalah salah satu teknik hyperparameter tuning untuk menemukan kombinasi parameter terbaik pada suatu model machine learning. Teknik ini bekerja secara acak mencoba berbagai kombinasi parameter yang ditentukan dalam suatu ruang pencarian. Dengan demikian, RandomizedSearchCV dapat membantu kita menemukan parameter optimal yang dapat meningkatkan kinerja model dalam waktu lebih singkat dibanding hyperparameter tuning lainnya.
+
+Berikut adalah cara kerja RandomizedSearchCV:
+- Menentukan rentang nilai atau distribusi probabilitas untuk setiap hyperparameter yang ingin dioptimalkan.
+- Algoritma secara acak memilih kombinasi parameter dari ruang pencarian yang telah ditentukan.
+- Model dilatih dengan menggunakan kombinasi parameter yang dipilih dan dievaluasi menggunakan metrik yang relevan (accuracy).
+- Proses sampling dan evaluasi diulang sebanyak yang ditentukan, atau hingga mencapai kriteria berhenti yang telah ditetapkan.
+- Setelah semua iterasi selesai, model dengan kinerja terbaik (berdasarkan metrik evaluasi) akan dipilih sebagai model akhir.
 
 ## 6. Evaluation
+
 Metrik evaluasi yang digunakan adalah sebagai berikut:
 
 ### Accuracy
 *Accuracy* adalah metric yang mengukur seberapa sering model machine learning memprediksi keluaran hasil secara tepat. Hasil akurasi ini adalah pembagian prediksi yang benar dengan jumlah seluruh data.
+
 Hasil akurasi ini berada diantara angka 0 dan 1. Semakin besar nilai akurasi, maka semakin baik model yang dibuat. Artinya, jika hasil accuracy bernilai 1, maka model mampu memprediksi seluruh data tanpa satupun kesalahan.
+
 Untuk menghitung nilai akurasi, menggunakan rumus berikut:
+![accuracy](images/accuracy.png)
 - TP = True Positive (Model memprediksi dengan benar bahwa data bernilai positive)
 - TN = True Negative (Model memprediksi dengan benar bahwa data bernilai negative)
 - FP = False Positive (Model memprediksi dengan salah bahwa data bernilai positive)
@@ -198,31 +238,62 @@ Untuk menghitung nilai akurasi, menggunakan rumus berikut:
 
 ### Recall
 Recall/Sensitivitas adalah metrik evaluasi yang menggambarkan seberapa baik suatu model dalam mengidentifikasi positif dengan benar.
+
 Sebagai analogi, bayangkan kita sedang mencari jarum di tumpukan jerami. Recall menggambarkan seberapa baik kita menemukan semua jarum yang ada di tumpukan tersebut. Jika kita menemukan 6 dari 10 dari jarum ditumpukan Jerami tersebut, artinya kita masih melewatkan 4 jarum yang belum ditemukan.
+
 Dalam proyek ini, recall ini sangat penting, karena biaya salah mendiagnosis pasien positif (false negative) lebih tinggi. Contoh, pasien yang seharusnya menjalani pengobatan karena diabetes malah memakan makanan manis yang memperburuk penyakit diabetesnya.
+
 Untuk menghitung recall, Anda dapat membagi jumlah true positive dengan jumlah contoh positif. Semakin tinggi recall, semakin banyak positif yang terdeteksi.
+![recall](images/recall.png)
 
 ### Precision
 Precision/Presisi adalah metrik yang mengukur seberapa sering model pembelajaran mesin memprediksi kelas positif dengan benar.
 Presisi dihitung dengan membagi jumlah prediksi positif yang benar (positif benar) dengan jumlah total prediksi positif (positif benar ditambah positif salah).
+![precision](images/precision.png)
+
+#### Hasil Metrik precision, recall, dan f1-score
+
+              precision    recall  f1-score   support
+
+           0       0.97      1.00      0.98     17516
+           1       1.00      0.67      0.80      1710
+
+    accuracy                           0.97     19226
+   macro avg       0.98      0.83      0.89     19226
+weighted avg       0.97      0.97      0.97     19226
+
+Berdasarkan metrik yang diberikan, kita dapat menyimpulkan hal berikut:
+- Model ini sangat tepat dalam mengidentifikasi contoh kelas 0.
+- Model ini hampir sempurna dalam mengingat contoh kelas 0.
+- Skor F1 juga sangat tinggi, yang menunjukkan kinerja keseluruhan yang kuat untuk kelas 0.
+- Model ini sempurna dalam presisi untuk kelas 1.
+- Namun, model ini relatif lemah dalam mengingat contoh kelas 1.
+- Skor F1 sedang, yang menunjukkan keseimbangan antara presisi dan mengingat, tetapi lebih rendah daripada kelas 0.
+
+#### Kinerja Keseluruhan
+
+- Keakuratan keseluruhan tinggi, yang menunjukkan bahwa model ini secara umum akurat.
+- Skor F1 rata-rata makro sedang, yang menunjukkan bahwa model berkinerja baik secara rata-rata di kedua kelas.
+- Skor F1 rata-rata tertimbang tinggi, yang menunjukkan bahwa kinerja model sangat dipengaruhi oleh kelas mayoritas (kelas 0). Kesimpulan
+
+#### Kesimpulan
+
+Model ini bekerja sangat baik pada kelas mayoritas (kelas 0) tetapi kesulitan pada kelas minoritas (kelas 1). Ini adalah masalah umum dalam kumpulan data yang tidak seimbang. Untuk meningkatkan kinerja pada kelas minoritas, teknik seperti oversampling, undersampling, atau pembobotan kelas dapat dipertimbangkan.
 
 ### Confusion Matrix
-Pada bagian ini anda perlu menyebutkan metrik evaluasi yang digunakan. Lalu anda perlu menjelaskan hasil proyek berdasarkan metrik evaluasi yang digunakan.
-Untuk menghitung nilai akurasi, kita dapat menggunakan persamaan matematika berikut:
 
+Confusion matrix adalah sebuah tabel yang digunakan untuk mengevaluasi performa model klasifikasi. Tabel ini membandingkan prediksi model dengan nilai aktual (ground truth) dari data. Dengan kata lain, confusion matrix menunjukkan seberapa baik model kita dalam mengklasifikasikan data ke dalam kelas yang benar.
 
+#### Hasil Confusion Matrix
 
-Sebagai contoh, Anda memiih kasus klasifikasi dan menggunakan metrik **akurasi, precision, recall, dan F1 score**. Jelaskan mengenai beberapa hal berikut:
-- Penjelasan mengenai metrik yang digunakan
-- Menjelaskan hasil proyek berdasarkan metrik evaluasi
+![confusion_matrix](images/confusion_matrix.png)
+Ini adalah *confusion matrix* dari hasil model yang dibuat. Berikut adalah penjelasannya:
+- (0,0): Model memprediksi kelas 0 dan benar (True Negative). Ada 17516 data yang diklasifikasikan dengan benar sebagai kelas 0.
+- (0,1): Model memprediksi kelas 1, padahal sebenarnya kelas 0 (False Positive). Ada 0 data yang salah diklasifikasikan sebagai kelas 1.
+- (1,0): Model memprediksi kelas 0, padahal sebenarnya kelas 1 (False Negative). Ada 567 data yang salah diklasifikasikan sebagai kelas 0.
+- (1,1): Model memprediksi kelas 1 dan benar (True Positive). Ada 1143 data yang diklasifikasikan dengan benar sebagai kelas 1.
 
-Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, problem statement, dan solusi yang diinginkan.
+#### Kesimpulan dari Confusion Matrix ini:
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan formula metrik dan bagaimana metrik tersebut bekerja.
-
-**---Ini adalah bagian akhir laporan---**
-
-_Catatan:_
-- _Anda dapat menambahkan gambar, kode, atau tabel ke dalam laporan jika diperlukan. Temukan caranya pada contoh dokumen markdown di situs editor [Dillinger](https://dillinger.io/), [Github Guides: Mastering markdown](https://guides.github.com/features/mastering-markdown/), atau sumber lain di internet. Semangat!_
-- Jika terdapat penjelasan yang harus menyertakan code snippet, tuliskan dengan sewajarnya. Tidak perlu menuliskan keseluruhan kode project, cukup bagian yang ingin dijelaskan saja.
+Model sangat baik dalam mengklasifikasikan kelas 0. Hampir semua data kelas 0 berhasil diprediksi dengan benar.
+Akan tetapi, model kurang baik dalam mengklasifikasikan kelas 1. Ada cukup banyak data kelas 1 yang salah diklasifikasikan sebagai kelas 0 (False Negative). Ini mengindikasikan bahwa model mungkin kesulitan dalam mendeteksi kelas minoritas (jika kelas 1 adalah kelas minoritas).
