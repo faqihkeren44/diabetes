@@ -1,29 +1,28 @@
 from flask import Flask, render_template, request
 import pickle
-import numpy as np
+import pandas as pd
 
-model = pickle.load(open('model.pkl', 'rb'))
+with open("model.pkl", "rb") as model_file:
+    model = pickle.load(model_file)
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='template')
 
-
+features = ['blood_glucose_level', 'HbA1c_level', 'age', 'bmi']
 
 @app.route('/')
-def man():
-    return render_template('index.html')
-
+def main():
+    return render_template('home.html')
 
 @app.route('/predict', methods=['POST'])
-def home():
-    data1 = request.form['nama']
-    data2 = request.form['age']
-    data3 = request.form['blood_glucose_level']
-    data4 = request.form['HbA1c_level']
-    data5 = request.form['bmi']
-    arr = np.array([[data1, data2, data3, data4, data5]])
+def predict():
+    data1 = request.form['a']
+    data2 = request.form['b']
+    data3 = request.form['c']
+    data4 = request.form['d']
+    arr = [[data1, data2, data3, data4]]
+    arr = pd.DataFrame(arr, columns=features)
     pred = model.predict(arr)
-    return render_template('after.html', result=pred)
-
-
+    return render_template('after.html', data=pred)
+    
 if __name__ == "__main__":
     app.run(debug=True)
