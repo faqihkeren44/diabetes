@@ -15,7 +15,7 @@ def man():
 
 @app.route('/predict', methods=['POST'])
 def home():
-    data1 = request.form['name']
+    data1 = request.form['nama']
     data2 = request.form['age']
     data3 = request.form['blood_glucose_level']
     data4 = request.form['HbA1c_level']
