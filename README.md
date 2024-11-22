@@ -135,11 +135,20 @@ Missnig value sering kali menjadi hambatan dan menurunkan tingkat akurasi, karen
 
 #### Duplikasi Data
 
-Menyeleksi apakah ada data yang memiliki nilai yang sama dengan data lain. Untuk mencari data yang terduplikasi ini, dilakukan dengan menggunakan perintah dupliacted().
+Menyeleksi apakah ada data yang memiliki nilai yang sama dengan data lain. Untuk mencari data yang terduplikasi ini, dilakukan dengan menggunakan perintah duplicated().
 Setelah itu, jumlah data yang sama ini akan ditotalkan dan menampilkan jumlahnya dengan perintah sum().
 
-Duplikasi juga salah satu kesalahan yang dapat menyebabkan kesalahan interpretasi dan mengganggu analisis sehingga dapat berpotensi menyesatkan model pembelajaran.
-Oleh karena iu, jika terdapat data yang terduplikasi, maka semua data itu akan dihapus, dan hanya menyisakan 1 data saja. Adapun perintah untuk menghapusnya secara otomatis yaitu denagn drop_duplicated(inplace=True).
+Duplikasi juga salah satu kesalahan data yang dapat mempengaruhi model, diantaranya:
+- Data duplikasi biasanya tidak menambah informasi baru untuk model, sehingga keberadaannya tidak meningkatkan kemampuan model dalam mengenali pola.
+- Memperbesar risiko overfitting, terutama untuk model yang sangat kompleks (seperti Decision Tree atau Random Forest). Hal ini karena model cenderung "mengingat" pola yang sering muncul secara berulang, meskipun pola tersebut berasal dari data yang sama.
+
+Diketahui juga jika bahwa data non-diabetes sudah jauh lebih dominan.
+Total data non-diabetes: 91500 - 3836 = 87664
+Total data diabetes: 8500 - 18 = 8482
+Rasio kategori setelah penghapusan yaitu 87664/8482 = 1034/1
+Sehingga, menghapus data duplikasi ini tidak akan signifikan mempengaruhi distribusi dataset. Hal ini justru membuat dataset menjadi lebih bersih dan membantu mengurangi bias terhadap kategori non-diabetes.
+
+Oleh karena itu, semua data yang terduplikasi akan dihapus, dan hanya menyisakan 1 data saja. Adapun perintah untuk menghapusnya secara otomatis yaitu denagn drop_duplicated(inplace=True).
 
 #### Menghapus Nilai Yang Tidak Sesuai
 
@@ -175,6 +184,22 @@ Cara mudah membagi data yaitu dengan menggunakan train_test_split. Berikut adala
 ``` from sklearn.model_selection import train_test_split ```
 
 target_size atau rasio yang digunakan untuk proyek ini yaitu 0.2 (80% data training, 20% data train). Rasio ini umum digunakan untuk memberikan keseimbangan antara memiliki jumlah data yang cukup untuk melatih model dan menyediakan data yang cukup untuk menguji performa model.
+
+#### Menambahkan `stratify=y` pada `train_test_split`
+
+`stratify=y` berfungsi untuk menyeimbangkan pembagian/distribusi kelas agar seimbang antara data latih dan uji. Karena, jika salah satu kelas kurang terwakili dalam data latih, model mungkin tidak akan terlatih dengan baik, karena tidak mampu belajar pola dari kelas tersebut.
+
+Contohnya, jika dataset asli memiliki 90% kelas non-diabetes (kelas mayoritas) dan 10% kelas diabetes (kelas minoritas), maka data latih dan uji masing-masing juga akan memiliki proporsi yang sama (90:10).
+
+#### Menangani Dataset Tidak Seimbang
+
+Seperti yang sudah ditunjukan pada info dataset sebelumnya (atau pada penjelasan dupliaced data), dataset ini memiliki jumlah pasien diabetes sebanyak 91500 dan pasien yang tidak terkena diabetes sebanyak 8500. Artinya, data ini sangat tidak seimbang. Kondisi ini akan berdampak pada hasil model yang keseluruhan mungkin terlihat memiliki akurasi tinggi, tetapi sebenarnya model hanya memprediksi dengan baik untuk kelas mayoritas, dan lain masalah lainnya. Disinilah metode SMOTE dan Undersampling digunakan.
+
+Metode SMOTE (Synthetic Minority Oversampling Technique) adalah teknik untuk menangani ketidakseimbangan data dengan mensintesis sampel baru atau menciptakan sampel baru yang lebih bervariasi untuk kelas minoritas berdasarkan tetangga terdekat dari data yang ada. Implementasi SMOTE dilakukan dengan library `imbalanced-learn`. Adapun Undersampling adalah menghapus sebagian data dari kelas mayoritas untuk menyeimbangkan distribusi.
+
+Pada proyek ini, akan menggabungkan kedua metode ini untuk memastikan distribusi data yang lebih seimbang dengan mengurangi ukuran kelas mayoritas dan memperkaya variasi kelas minoritas, yaitu dengan SMOTE-Tomek. Berikut adalah cara kerja SMOTE-Tomek:
+- Pertama, SMOTE digunakan untuk meningkatkan jumlah data pada kelas minoritas dengan cara membuat data sintetis.
+- Setelah itu, Tomek digunakan untuk menghapus data mayoritas yang sangat dekat dengan data minoritas. Hal ini bertujuan untuk mengurangi noise dan meningkatkan pemisahan antara kedua kelas.
 
 ## 5. Modeling
 
