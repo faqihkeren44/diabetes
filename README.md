@@ -33,24 +33,28 @@ Hasil dari proyek ini adalah dashboard dan model prediksi
 
 ### Problem Statements
 
-Dari latar belakang yang sudah dijelaskan sebelumnya, dapat disimpulkan bahwa diabetes sudah menjadi ancaman serius bagi kesehatan saat ini. Oleh sebab itu, Proyek Diabetes Prediction ini dibuat.
-
-Diantara beberapa masalah yang akan diselesaikan melalui Proyek Diabetes Prediction ini adalah sebagai berikut:
-- Dari data kesehatan yang ada, apa faktor yang mempengaruhi orang terkena diabetes, dan korelasinya terhadap data kesehatan lainnya.
-- Model yang dapat memprediksi apakah orang itu terkena diabetes atau tidak sesuai data kesehatannya, sehingga perlu mengetahui juga model dan algoritma apa yang terbaik.
-- Hal apa saja yang sesuai untuk dia kerjakan agar dapat mengurangi resiko diabetes. Karena setiap orang memilki kondisi kesehatan yang berbeda yang mungkin salah satunya menjadi penyebab diabetes.
+Dari latar belakang yang sudah dijelaskan sebelumnya, beberapa masalah atau tantangan Proyek Diabetes Prediction ini adalah sebagai berikut:
+- Diabetes adalah salah satu penyakit kronis yang terus meningkat secara global. Sistem kesehatan seringkali kesulitan mengidentifikasi pasien yang berisiko tinggi karena keterbatasan sumber daya dan banyaknya data pasien yang perlu dianalisis secara manual.
+- Banyak paisen memiliki keterbatasan ilmu pengetahuan seputar faktor penyebab dan dampak dari penyakit yang dialami, tidak terkecuali diabetes. Akibtanya, pasien yang sudah dinyatakan diabetes memakan atau melakukan hal berakibat fatal.
 
 ### Goals
 
-Tujuan utama dari Proyek Diabetes Prediction ini adalah semua orang dapat mengantisipasi penyakit diabetes sedini mungkin. Terutama dengan adanya rekomendasi atau tips yang diberikan, harapannya ini dapat mengurangi penyakit diabetes bagi yang sudah terkena, dan mengurangi kondisi yang menyebabkan diabetes bagi yang tidak mengalaminya. Dan juga model yang dapat menentukan secara akurat apakah dia penderita diabetes atau tidak.
+Untuk menyelesaikan permasalahan yang ada pada problem statement, berikut adalah beberapa tujuan yang ingin dicapai melalui proyek ini:
+- Mengembangkan model machine learning yang dapat memprediksi pasien dengan risiko diabetes tinggi berdasarkan data seperti usia, BMI, level glukosa, dan hemoglobin. Model ini harus memiliki akurasi >85% dan membantu sistem kesehatan dalam memprioritaskan intervensi medis.
+- Membangun model klasifikasi yang tidak hanya menampilkan hasil bahwa pasien diabetes atau tidak, tapi juga menampilkan rekomnedasi kegiatan, aktivitas, atau makanan yang dapat dilakukan untuk mencegah diabetes sesuai data kesehatan yang dimasukan.
 
 ### Solution statements
 
-- Untuk dapat menemukan model yang dapat memprediksi secara akurat, Proyek Diabetes Prediction ini akan melatih berbagai macam model, lalu memilihi model dengan akurasi paling tinggi sebagai model yang digunakan.
-- Rekomendasi hal yang akan ditampilkan akan diambil dari beberapa sumber, yaitu:
-- Memvisualisasikan semua fitur yang ada pada data dan mengkorelasikannya dengan fitur lainnya agar terlihat jelas apa saja yang dapat menyebabkan diabetes. Salah satu visualisasi yang akan dipakai yaitu heatmap dengan memanfaatkan library seaborn
-- Untuk meningkatkan akurasi model, akan ditambahkan proses improvement pada machine learning yang dipilih dengan hyperparameter tuning.
-- Metrik evaluasi yang digunakan adalah *accuracy*, *recall*, *precission*, dan *f1-score* yang ada dalam classification_report. Selain itu juga akan ada *confusion matrix*.
+Untuk dapat membuat model dengan akurasi di atas 85%, berikut solusi yang digunakan:
+- **Pra-pemrosesan Data**: Melakukan pembersihan data, menangani nilai yang hilang, menormalkan fitur, dan mengatasi ketidakseimbangan kelas menggunakan metode seperti SMOTE.
+- **Memilih Model**: Memilih model yang sesuai seperti Gradient Boosting, dan Decision Tree dengan evaluasi performa menggunakan metrik akurasi, F1-score, dan AUC-ROC.
+- **Hyperparameter Tuning**: Menggunakan metode seperti RandomizedSearchCV atau GridSearchCV untuk menemukan kombinasi parameter terbaik.
+- **Validasi dan Uji**: Membagi dataset menjadi data pelatihan dan pengujian (dengan stratifikasi) untuk memastikan model dapat digunakan dengan baik.
+
+Untuk mendapat hasil kedua, yaitu pasien mendapat rekomendasi, berikut tambahan yang akan dilakukan:
+- Menggunakan pendekatan berbasis aturan (rule-based) atau model tambahan untuk memberikan rekomendasi spesifik berdasarkan hasil prediksi. Contoh, jika pasien memiliki BMI tinggi, model dapat merekomendasikan penurunan berat badan dengan aktivitas seperti jogging.
+Jika level glukosa tinggi, model merekomendasikan makanan dengan indeks glikemik rendah.
+- Membuat antarmuka interaktif yang memungkinkan pengguna memasukkan data kesehatan mereka dan mendapatkan hasil prediksi risiko serta rekomendasi personal.
 
 ## 3. Data Understanding
 
