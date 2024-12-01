@@ -93,6 +93,7 @@ Berikut adalah informasi dasar dari data yang akan digunakan:
 - 3 *features* merupakan data kategorikal yang berupa 0 sebagai tidak, dan 1 sebagai iya, dan 2 *features* kategorikal dengan beberapa pilihan
 - Data bersih dari missing value atau kolom yang tidak memiliki nilai.
 - Terdapat jumlah 3854 data yang terduplikasi (3836 dari pasien tidak diabetes, dan 18 dari paisen diabetes).
+- Dataset ini memiliki outlier pada kolom bmi. Ini tidak dihapus karena kemungkinan akan mengurangi kualitas data.
 
 ### Variabel-variabel Diabetes Prediction Dataset
 
