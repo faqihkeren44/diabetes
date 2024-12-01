@@ -112,14 +112,19 @@ Berikut adalah informasi dasar dari data yang akan digunakan:
 #### Age
 
 Dapat dilihat pada hiplot di bawah ini, bahwa rentang umur dataset yaitu 0-80 tahun. Semakin bertambah usia, semakin tinggi pula pasien yang terkena diabetes. Artinya, umur cukup mempengaruhi diabetes.
+
 ![vis_1](images/vis_1.png)
 
 #### Data Kategorikal
+
 ![categorical_visualization](images/vis_2.png)
+
 Dari visualisasi dataset di atas, tidak ada yang terlalu menyebabkan orang terkena diabetes. Memang tingkat orang yang tidak terkena *hypertension* atau penyakit jantung lebih tinggi tidak terkena diabetes, namun jumlah data yang terkena *hypertension* atau penyakit jantung lebih sedikit. Begitu juga dengan jenis kelamin dan riwayat merokok.
 
 #### Data Numerikal
+
 ![numerical_visualization](images/vis_4.png)
+
 Berikut beberapa informasi yang dapat diambil:
 - Orang dengan level Hemoglobin A1c di atas 6.5 dipastikan terkena diabetes. Namun ada beberapa orang dengan level Hemoglobin A1c di bawah 6.5 yang terkena diabetes.
 - Orang dengan jumlah glukosa di atas 200 dipastikan terkena diabetes.
@@ -129,8 +134,12 @@ Berikut beberapa informasi yang dapat diambil:
 #### Heatmap
 
 ![heatmap_corr](images/heatmap_corr.png)
+
 Di atas adalah heatmap korelasi/hubungan antara *feature* diabetes dengan fitur lainnya. Beberapa hasil yang didapat antara lain:
-- 
+- Umur mempengaruhi berat badan, penyakit jantung, dan hypertensi, sehingga berdampak juga pada diabetes.
+- Jenis kelamin tidak memiliki keterkaitan pada *feature* apapun.
+- Level Hemoglobin dan Level Glukosa saling berkaitan satu sama lain.
+- Penyakit diabetes sangat ditentukan oleh level hemoglobin dan level glukosa.
 
 ## 4. Data Preparation
 
