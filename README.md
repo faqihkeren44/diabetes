@@ -354,7 +354,7 @@ Metrik evaluasi yang digunakan adalah sebagai berikut:
 Hasil akurasi ini berada diantara angka 0 dan 1. Semakin besar nilai akurasi, maka semakin baik model yang dibuat. Artinya, jika hasil accuracy bernilai 1, maka model mampu memprediksi seluruh data tanpa satupun kesalahan.
 
 Untuk menghitung nilai akurasi, menggunakan rumus berikut:
-![accuracy](images/accuracy.png)
+![accuracy](images/Accuracy_1.png)
 - TP = True Positive (Model memprediksi dengan benar bahwa data bernilai positive)
 - TN = True Negative (Model memprediksi dengan benar bahwa data bernilai negative)
 - FP = False Positive (Model memprediksi dengan salah bahwa data bernilai positive)
@@ -388,6 +388,7 @@ Hasil *accuracy* yang ditunjukan pada akhir pembuatan model, baik menggunakan mo
 F1-Score adalah metrik evaluasi performa model yang digunakan dalam masalah klasifikasi, terutama ketika data tidak seimbang. F1-Score menggabungkan dua metrik utama: Precision dan Recall ke dalam satu nilai harmonis.
 
 F1-Score dihitung dengan rumus berikut:
+
 ![precision](images/f1_score.JPG)
 
 Hasil *accuracy* yang ditunjukan pada akhir pembuatan model, baik menggunakan model DecisionTreeClassifier atau GradientBoostingClassifier adalah 0.98 dan 0.80.
@@ -428,7 +429,9 @@ Berdasarkan metrik yang diberikan, kita dapat menyimpulkan hal berikut:
 Confusion matrix adalah sebuah tabel yang digunakan untuk mengevaluasi performa model klasifikasi. Tabel ini membandingkan prediksi model dengan nilai aktual (ground truth) dari data. Dengan kata lain, confusion matrix menunjukkan seberapa baik model kita dalam mengklasifikasikan data ke dalam kelas yang benar.
 
 Berikut adalah hasil confusion matrix kedua model
+
 ![confusion_matrix_0](images/confusion_matrix_0.JPG)
+
 ![confusion_matrix_1](images/confusion_matrix_1.JPG)
 
 **Confusion Matrix Decision Tree**
