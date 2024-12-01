@@ -202,7 +202,7 @@ Cara mudah membagi data yaitu dengan menggunakan train_test_split. Berikut adala
 
 target_size atau rasio yang digunakan untuk proyek ini yaitu 0.2 (80% data training, 20% data train). Rasio ini umum digunakan untuk memberikan keseimbangan antara memiliki jumlah data yang cukup untuk melatih model dan menyediakan data yang cukup untuk menguji performa model.
 
-#### Menambahkan `stratify=y` pada `train_test_split`
+#### Menambahkan stratify=y pada train_test_split
 
 `stratify=y` berfungsi untuk menyeimbangkan pembagian/distribusi kelas agar seimbang antara data latih dan uji. Karena, jika salah satu kelas kurang terwakili dalam data latih, model mungkin tidak akan terlatih dengan baik, karena tidak mampu belajar pola dari kelas tersebut.
 
@@ -239,10 +239,10 @@ Berikut gambaran proses algoritma Decision Tree
 Awalnya, algoritma mengevaluasi semua fitur dan memilih fitur yang memberikan pembagian terbaik atau split terbaik berdasarkan *Gini Impurity* (untuk criterion "gini"), atau *Information Gain* (untuk criterion "entropy").
 Berikut cara algoritma menghitung kualitas split
 - Jika menggunakan Gini Impurity, Gini Impurity dihitung sebagai
-![gini_pattern](images/gini.jpg)
+![gini_pattern](images/gini.JPG)
 di mana p𝑖 adalah probabilitas kelas 𝑖. Split terbaik adalah yang meminimalkan nilai Gini Impurity.
 - Jika menggunakan Entropy, Entropy dihitung sebagai
-![entropy_pattern](images/entropy.jpg)
+![entropy_pattern](images/entropy.JPG)
 dan split terbaik adalah yang memaksimalkan Information Gain:
 Information Gain = Entropy(parent) − weighted sum of Entropy(children)
 
@@ -279,7 +279,7 @@ Gradient Boosting dimulai dengan model awal yang sederhana. Setiap iterasi, akan
 1. Menghitung error (residual), yaitu selisih antara nilai target sebenarnya dan prediksi model saat ini. Residu dihitung menggunakan gradien fungsi loss.
 2. Sebuah model baru (decision tree kecil atau *weak learner*) dilatih untuk memprediksi residual tersebut.
 3. Prediksi model baru ditambahkan ke model ansambel dengan bobot tertentu
-![weak_learner_pattern](images/weak_learner.jpg)
+![weak_learner_pattern](images/weak_learner.JPG)
 di mana ℎ<sub>𝑚</sub>(𝑥) adalah model baru pada iterasi 𝑚, dan 𝜂 adalah learning rate yang mengontrol kontribusi model baru.
 4. Update prediksi, yaitu kombinasi dari semua model sebelumnya.
 
@@ -388,7 +388,7 @@ Hasil *accuracy* yang ditunjukan pada akhir pembuatan model, baik menggunakan mo
 F1-Score adalah metrik evaluasi performa model yang digunakan dalam masalah klasifikasi, terutama ketika data tidak seimbang. F1-Score menggabungkan dua metrik utama: Precision dan Recall ke dalam satu nilai harmonis.
 
 F1-Score dihitung dengan rumus berikut:
-![precision](images/f1_score.jpg)
+![precision](images/f1_score.JPG)
 
 Hasil *accuracy* yang ditunjukan pada akhir pembuatan model, baik menggunakan model DecisionTreeClassifier atau GradientBoostingClassifier adalah 0.98 dan 0.80.
 
@@ -428,8 +428,8 @@ Berdasarkan metrik yang diberikan, kita dapat menyimpulkan hal berikut:
 Confusion matrix adalah sebuah tabel yang digunakan untuk mengevaluasi performa model klasifikasi. Tabel ini membandingkan prediksi model dengan nilai aktual (ground truth) dari data. Dengan kata lain, confusion matrix menunjukkan seberapa baik model kita dalam mengklasifikasikan data ke dalam kelas yang benar.
 
 Berikut adalah hasil confusion matrix kedua model
-![confusion_matrix_0](images/confusion_matrix_0.jpg)
-![confusion_matrix_1](images/confusion_matrix_1.jpg)
+![confusion_matrix_0](images/confusion_matrix_0.JPG)
+![confusion_matrix_1](images/confusion_matrix_1.JPG)
 
 **Confusion Matrix Decision Tree**
 -True Positives (TP): 1,704. Pasien yang benar-benar memiliki diabetes dan berhasil diprediksi dengan benar.
