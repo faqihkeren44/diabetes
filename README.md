@@ -446,15 +446,15 @@ Berikut adalah hasil confusion matrix kedua model
 - False Positives (FP): 18. Sebanyak 18 pasien salah diprediksi sebagai memiliki diabetes padahal sebenarnya tidak memiliki.
 - False Negatives (FN): 823. Sebanyak 823 pasien yang memiliki diabetes gagal terdeteksi.
 
-### Kesimpulan
+## Kesimpulan
 
-#### Model Terbaik
+### Model Terbaik
 
 Kedua model memberikan hasil evaluasi yang sangat baik, tetapi GradientBoostingClassifier adalah pilihan terbaik dalam skenario ini karena performa yang sedikit lebih baik dalam menangani kelas minoritas.
 
 GradientBoostingClassifier dianggap lebih baik untuk tugas ini karena memiliki recall yang sedikit lebih tinggi (0.68 vs 0.67) dan macro average recall lebih baik (0.84 vs 0.83). Recall yang lebih tinggi pada kelas minoritas (kelas 1) sangat penting untuk meminimalkan false negatives (FN), terutama dalam konteks deteksi diabetes di mana kesalahan deteksi dapat berdampak serius.
 
-#### Evaluasi terhadap Business Understanding
+### Evaluasi terhadap Business Understanding
 
 Pada akhir proyek ini, problem statements belum tuntas terselesaikan. Berikut penjelasannya:
 
